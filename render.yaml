@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: finance-dashboard-api
+    env: java
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/finance-dashboard-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: APP_JWT_SECRET
+        sync: false
+      - key: APP_JWT_EXPIRATION_MS
+        value: 86400000
